@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 	"net"
-	"github.com/buggemot/go-edu/pkg/csvfile"
+	"../pkg/csvfile"
 )
 
 
@@ -77,7 +77,7 @@ func generator(url string, urlCh chan string) {
 
 
 func main() {
-	urls := []string{"http://google.ru", "http://habr.com/",
+	urls := []string{"http://google.ru",
 					 "http://yandex.ru", "http://yahoo.com",
 					 "http://mail.ru", "http://bus.gov.ru",
 					 "http://roskazna.ru", "http://gov.ru",
@@ -97,9 +97,8 @@ func main() {
 		fmt.Printf("%s\n", <-sizeCh)
 	}
 
-	fmt.Printf("%v", csvfile.Read)
-	//cf := csvfile.NewCsvFile() 
-	//cf.name = "pattern.csv"
-	//cf.Read()
-	//fmt.Printf("%s\n %v", cf.name, cf.records[1][0])
+	cf := csvfile.NewCsvFile()
+	cf.Name = "pattern.csv"
+	cf.Read()
+	fmt.Printf("%s\n %v", cf.Name, cf.Records[1][0])
 }

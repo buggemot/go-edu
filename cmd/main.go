@@ -97,7 +97,9 @@ func main() {
 		fmt.Printf("%s\n", <-sizeCh)
 	}
 
-	cf := csvfile&csvFile{name: "pattern.csv"}
-	cf.read()
-	fmt.Printf("%s\n %v", cf.name, cf.records[1][0])
+	fmt.Printf("%v", csvfile.Read)
+	//cf := csvfile.NewCsvFile() 
+	//cf.name = "pattern.csv"
+	//cf.Read()
+	//fmt.Printf("%s\n %v", cf.name, cf.records[1][0])
 }

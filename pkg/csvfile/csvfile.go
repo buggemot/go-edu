@@ -13,6 +13,10 @@ type csvFile struct {
 	records [][]string
 }
 
+func NewCsvFile() csvFile {
+	return &csvFile
+}
+
 func (cf *csvFile) Read() {
 	var err error
 	cf.body, err = os.ReadFile(cf.name)
